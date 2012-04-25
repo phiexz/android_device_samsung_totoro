@@ -1,0 +1,26 @@
+#
+# system.prop for apollo
+#
+
+# Define to manage ril to manage modem answere when going from 2G to 3G
+ro.ril.ntmodeglobal=true
+
+rild.libpath=/system/lib/libbrcm_ril.so
+ro.telephony.ril_class=samsung
+rild.libargs=-d /dev/smd0
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+DEVICE_PROVISIONED=1
+debug.sf.hw=1
+debug.composition.type=mdp
+ro.sf.lcd_density=120
+
+
+
