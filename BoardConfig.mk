@@ -17,21 +17,19 @@
 # Product-specific compile-time definitions.
 #
 
+LOCAL_PATH:= $(call my-dir)
+
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# inherit from the proprietary version
--include vendor/samsung/totoro/BoardConfigVendor.mk
-
 # Board
 TARGET_BOARD_PLATFORM := bcm21553
 TARGET_CPU_ABI := armeabi-v6l
-#TARGET_CPU_ABI := armeabi
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv6-vfp
 
-TARGET_BOOTLOADER_BOARD_NAME := GT-S5360
+TARGET_BOOTLOADER_BOARD_NAME := totoro
 
 TARGET_OTA_ASSERT_DEVICE := totoro,GT-S5360
 
@@ -107,7 +105,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/lm-2/gadget/lun0/file"
 BOARD_UMS_LUNFILE := "/sys/devices/lm-2/gadget/lun0/file"
 
 # Kernel : console=ttySAC1,115200 loglevel=4 no_console_suspend
-BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8
 BOARD_KERNEL_BASE := 81600000
 BOARD_NAND_PAGE_SIZE := 4096 -s 128
 BOARD_KERNEL_PAGESIZE := 4096
@@ -165,6 +162,3 @@ TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /cache/.startrecovery; sync;"
 BOARD_RECOVERY_HANDLES_MOUNT := true
 TARGET_NO_KERNEL := true
 BOARD_LDPI_RECOVERY := true
-
-
-
