@@ -11,5 +11,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#include $(call all-named-subdir-makefiles, libcamera libaudio libgps libsensors libcopybit libgralloc libsgl liboverlay libstagefrighthw)
-include $(all-subdir-makefiles)
+
+LOCAL_PATH := $(call my-dir)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),totoro)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := sec_touchscreen.kcm
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_KEY_CHAR_MAP)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := setup_fs.c
+LOCAL_MODULE := setup_fs
+LOCAL_MODULE_TAGS := optional
+#LOCAL_SHARED_LIBRARIES += libext4_utils libz
+include $(BUILD_EXECUTABLE)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
+endif
